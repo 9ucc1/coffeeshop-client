@@ -1,3 +1,7 @@
+# Coffeeshop App
+
+the server for this project can be found [here](https://github.com/9ucc1/coffeeshop-server)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
