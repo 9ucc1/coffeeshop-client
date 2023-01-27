@@ -2,6 +2,11 @@
 
 the server for this project can be found [here](https://github.com/9ucc1/coffeeshop-server)
 
+ideas:
+frontend: customize coffee drinks to order. they will have your name on it
+
+backend: 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
