@@ -7,7 +7,7 @@ import React from 'react'
 function OrderedDrinks(){
     return(
         <div>
-            
+            ordered drinks here
         </div>
     )
 }

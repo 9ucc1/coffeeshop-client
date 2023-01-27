@@ -5,7 +5,7 @@ import React from 'react'
 
 function CustomerForm(){
     return(
-        <div></div>
+        <div>customer form here</div>
     )
 }
 
