@@ -20,9 +20,13 @@ function Shops(){
     return(
         <div>map through shops
             {shops.map(shop =>(
-                shop.name
+                <ShopCard
+                key={shop.id}
+                name={shop.name}
+                id={shop.id}
+                location={shop.location}
+                />
             ))}
-            <ShopCard />
         </div>
     )
 }

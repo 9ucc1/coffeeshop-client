@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Route, NavLink } from 'react-router-dom'
 import DrinkMenu from './DrinkMenu'
 
@@ -25,14 +25,28 @@ const linkStyles = {
 // deploy: render, netlify, aws(big one)
 // osi model
 
-function ShopCard(){
+function ShopCard({ name, location, id }){
+
+  const [drinks, setDrinks] = useState([])
+
+  useEffect(()=>{
+    fetch('http://localhost:9292/drinks')
+    .then(response=>response.json())
+    .then(response=>setDrinks(response))
+  })
+
     return (
         <div>individual shop, link to drinkmenu
-        <Route path='/shops/:id'>
-          <DrinkMenu/>
+          <h3>{name}</h3>
+          <h3>{location}</h3>
+          <h4></h4>
+        <Route exact path={`/shops/${id}`}>
+          <DrinkMenu
+            drink={drinks}
+          />
         </Route>
         <NavLink
-                to="/shops/:id"
+                to={`/shops/${id}`}
                 exact
                 style={linkStyles}
                 activeStyle={{
@@ -40,7 +54,7 @@ function ShopCard(){
                     color: "cadetblue",
                   }}
             >
-                View Menu
+                Drink Menu
             </NavLink>
         </div>
     )

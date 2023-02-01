@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-function Drink(){
+function Drink({name}){
     return (
         <div>indiv. drink
-            
+            {name}
         </div>
     )
 }
