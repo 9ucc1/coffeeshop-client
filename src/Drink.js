@@ -1,10 +1,11 @@
 import React from 'react'
 
 
-function Drink({name}){
+function Drink({key, name, id}){
     return (
-        <div>indiv. drink
-            {name}
+        <div>
+            <h3> drinks:</h3>
+            <h4>{name}</h4>
         </div>
     )
 }
