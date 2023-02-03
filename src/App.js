@@ -6,6 +6,9 @@ import Shops from './Shops.js'
 import NewDrink from './NewDrink.js'
 import DrinkMenu from './DrinkMenu.js'
 
+// deploy: render, netlify, aws(big one)
+// osi model
+
 //fetch here and pass it down
 //RESTful routes
 
@@ -42,7 +45,7 @@ function App() {
       <Switch>
         <Route path='/shops/:id'>
           <DrinkMenu
-          shops={shops} 
+          shops={shops}
           />
         </Route>
         <Route path='/shops'>

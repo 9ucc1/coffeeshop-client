@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import ShopCard from './ShopCard'
 
 // map through shops from backend
 // for each shop, create a ShopCard
@@ -26,9 +25,18 @@ function Shops({shops}){
 
     //show shop info link here
     //just use Link
+
+    const renderShops = Object.keys(shops).map(shopid =>(
+        <li>
+            <Link to={`/shops/${shopid}`}>{shops[shopid].name}</Link>
+        </li>
+    ))
+
     return(
         <div>
-            {shops.map(shop =>(
+            {renderShops}
+            {/*shops.map(shop =>(
+                <>
                 <ShopCard
                 key={shop.id}
                 shopname={shop.name}
@@ -36,7 +44,8 @@ function Shops({shops}){
                 location={shop.location}
                 drinks={shop.drinks}
                 />
-            ))}
+                </>
+            ))*/}
         </div>
     )
 }
