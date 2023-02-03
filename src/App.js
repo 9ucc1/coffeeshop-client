@@ -43,6 +43,11 @@ function App() {
     <>
       <Header />
       <Switch>
+        <Route path='/shops/:id/newdrink'>
+          <NewDrink
+          shops={shops} 
+          />
+        </Route>
         <Route path='/shops/:id'>
           <DrinkMenu
           shops={shops}

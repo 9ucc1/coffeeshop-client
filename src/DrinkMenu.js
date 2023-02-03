@@ -1,5 +1,5 @@
 import React from 'react'
-import Drink from './Drink'
+import Drink from './Drink.js'
 import {Route, Link, useParams} from 'react-router-dom'
 
 // fetches all created drinks for a shop from backend
@@ -33,12 +33,9 @@ const linkStyles = {
 //function DrinkMenu({shopname, shopid, location, drinks}){
 function DrinkMenu({shops}){
 
-    //console.log(drinks)
-    //console.log(shopname)
-    //LOOK UP DYNAMIC ROUTING
     const params=useParams()
-    console.log(params)
-    console.log(shops[params.id].drinks)
+    //console.log(params)
+    //console.log(shops[params.id].drinks)
 
     //iterate through drinks
 
@@ -47,14 +44,16 @@ function DrinkMenu({shops}){
             <h3>{shops[params.id].name}</h3>
             <h4>{shops[params.id].location}</h4>
             DRINKMENU
-            {/*drinks.map(drink =>(
+            {shops[params.id].drinks.map(drink =>(
                 <Drink
                 key={drink.id}
                 name={drink.name}
                 id={drink.id}
                 />
-            ))*/}
-            
+            ))}
+            <Link to={`/shops/${params.id}/newdrink`}>
+                New Drink Form
+            </Link>
         </div>
     )
 }
