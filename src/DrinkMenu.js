@@ -1,6 +1,6 @@
 import React from 'react'
 import Drink from './Drink.js'
-import {Route, Link, useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 // fetches all created drinks for a shop from backend
 // connected to shop id
@@ -16,22 +16,8 @@ const linkStyles = {
     color: "white",
   };
 
-  /*
-              <NavLink
-                to={`/shops/${params.id}/drinks/new`}
-                exact
-                style={linkStyles}
-                activeStyle={{
-                    background: "white",
-                    color: "cadetblue",
-                  }}
-            >
-                New Drink
-            </NavLink>
-  */
-
 //function DrinkMenu({shopname, shopid, location, drinks}){
-function DrinkMenu({shops}){
+function DrinkMenu({shops, onDeleteDrink}){
 
     const params=useParams()
     //console.log(params)
@@ -43,16 +29,21 @@ function DrinkMenu({shops}){
         <div>
             <h3>{shops[params.id].name}</h3>
             <h4>{shops[params.id].location}</h4>
-            DRINKMENU
+            <p>{shops[params.id].description}</p>
+            MENU:
             {shops[params.id].drinks.map(drink =>(
                 <Drink
+                drink={drink}
                 key={drink.id}
                 name={drink.name}
                 id={drink.id}
+                shopid={drink.shop_id}
+                description={drink.description}
+                onDeleteDrink={onDeleteDrink}
                 />
             ))}
             <Link to={`/shops/${params.id}/newdrink`}>
-                New Drink Form
+                Add a New Drink
             </Link>
         </div>
     )

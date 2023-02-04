@@ -9,6 +9,8 @@ function Shops({shops}){
         </li>
     ))
 
+    //add new shops form
+
     return(
         <div>
             {renderShops}

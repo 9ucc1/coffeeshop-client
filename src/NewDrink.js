@@ -3,7 +3,8 @@ import {useParams} from 'react-router-dom'
 
 function NewDrink({shops}){
 
-    //how to connect this to its shop?
+    //have a button to get back to the menu
+    //useHistory(?) to reroute after form submit
     const params=useParams()
     console.log(params)
 
@@ -15,6 +16,11 @@ function NewDrink({shops}){
     }
 
     const [newDrink, setNewDrink] = useState(initialNewDrink)
+
+    function handleSubmit(event){
+        event.preventDefault()
+        console.log("submit button clicked")
+    }
 
     return(
         <div>
@@ -52,7 +58,7 @@ function NewDrink({shops}){
             <input
                 type="checkbox" name="decaf"
             />
-                <button type="submit">
+                <button type="submit" onClick={handleSubmit}>
                     Add to {shops[params.id].name}'s Menu
                 </button>
         </form>
