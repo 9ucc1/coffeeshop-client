@@ -21,24 +21,28 @@ function App() {
       .then(response=>{
         setShops(response)
     })
-  }, [shops])
+  }, [])
+  //dependency array?
   //????? is this okay?
 
+  function handleAddDrink(newDrink){
+    console.log("app add drink")
+    //const shopWithAdd = shops.filter((shop) => shop.id === newDrink.shop_id)
+    //setShops()
+  }
+
   function handleDeleteDrink(deletedDrink){
-    console.log('app delete drink function start')
-    //    const updatedSongs = songs.filter((song)=> song.id !== deletedSong.id)
-    //    setSongs(updatedSongs)
-    //const updatedDrinks = {...shops, drinks: [...shops.drinks, new?]}
-    // shops[params.id].drinks.map
-    
-    //?????
-    //console.log(shops[deletedDrink.shop_id].drinks)
     //shops with the id of deleted drink shop id
     const shopWithDelete = shops.filter((shop) => shop.id === deletedDrink.shop_id)
     //console.log(shopWithDelete[0].drinks)
     const updatedDrinks = shopWithDelete[0].drinks.filter((drink)=> drink.id !== deletedDrink.id)
     console.log(updatedDrinks)
-    setShops({...shops, shopWithDelete: updatedDrinks})
+    setShops((currentShopsState) => ({...currentShopsState, shopWithDelete: updatedDrinks}))
+    //    function handleChange(event){
+    //  setNewSong((currentSongState)=> (
+    //    {...currentSongState, [event.target.name]: event.target.value}
+    //))}
+
   }
 
   return(
@@ -48,6 +52,7 @@ function App() {
         <Route path='/shops/:id/newdrink'>
           <NewDrink
           shops={shops} 
+          onAddDrink={handleAddDrink}
           />
         </Route>
         <Route path='/shops/:id'>

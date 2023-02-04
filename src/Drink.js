@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function Drink({drink, name, id, shopid, description, onDeleteDrink}){
 
     //console.log("drink!", drink)
