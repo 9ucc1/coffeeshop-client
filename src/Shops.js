@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import NewShop from './NewShop.js'
 
 function Shops({shops}){
 
@@ -14,6 +15,9 @@ function Shops({shops}){
     return(
         <div>
             {renderShops}
+            <Link to="/shops/new">
+                Add a New Shop
+            </Link>
         </div>
     )
 }

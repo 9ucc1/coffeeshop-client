@@ -5,6 +5,7 @@ import Homepage from './Homepage.js'
 import Shops from './Shops.js'
 import NewDrink from './NewDrink.js'
 import DrinkMenu from './DrinkMenu.js'
+import NewShop from './NewShop.js'
 
 // deploy: render, netlify, aws(big one)
 // osi model
@@ -54,6 +55,9 @@ function App() {
           shops={shops} 
           onAddDrink={handleAddDrink}
           />
+        </Route>
+        <Route path='/shops/new'>
+          <NewShop />
         </Route>
         <Route path='/shops/:id'>
           <DrinkMenu
