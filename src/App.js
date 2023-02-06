@@ -6,9 +6,12 @@ import Shops from './Shops.js'
 import NewDrink from './NewDrink.js'
 import DrinkMenu from './DrinkMenu.js'
 import NewShop from './NewShop.js'
+import EditShop from './EditShop.js'
 
 // deploy: render, netlify, aws(big one)
 // osi model
+
+// stretch: display all drinks page
 
 function App() {
 
@@ -33,9 +36,10 @@ function App() {
   }
 
   function handleAddDrink(newDrink){
-    console.log("app add drink")
-    //const shopWithAdd = shops.filter((shop) => shop.id === newDrink.shop_id)
-    //setShops()
+    //console.log("app add drink")
+    const shopWithAdd = shops.filter((shop) => shop.id === newDrink.shop_id)
+    console.log(shopWithAdd)
+    setShops((currentShopsState) => ({...currentShopsState, shopWithAdd: newDrink}))
   }
 
   function handleDeleteDrink(deletedDrink){
@@ -65,6 +69,11 @@ function App() {
         <Route path='/shops/new'>
           <NewShop 
           onAddShop={handleAddShop}
+          />
+        </Route>
+        <Route path='/shops/:id/edit'>
+          <EditShop 
+          shops={shops}
           />
         </Route>
         <Route path='/shops/:id'>

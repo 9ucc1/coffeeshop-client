@@ -2,21 +2,8 @@ import React from 'react'
 import Drink from './Drink.js'
 import {Link, useParams} from 'react-router-dom'
 
-// fetches all created drinks for a shop from backend
-// connected to shop id
-// allows creating, editing and deleting drinks
+//patch to edit shop
 
-const linkStyles = {
-    display: "inline-block",
-    width: "100px",
-    padding: "12px",
-    margin: "0 6px 6px",
-    background: "dimgray",
-    textDecoration: "none",
-    color: "white",
-  };
-
-//function DrinkMenu({shopname, shopid, location, drinks}){
 function DrinkMenu({shops, onDeleteDrink}){
 
     const params=useParams()
@@ -25,13 +12,18 @@ function DrinkMenu({shops, onDeleteDrink}){
 
     //iterate through drinks
 
+    //.find on shops, use params id number to find shop, then map over that shop
+    //
+    const shopMenu = shops.find(shop=> shop.id == params.id)
+    console.log(shopMenu)
+
     return(
         <div>
-            <h3>{shops[params.id].name}</h3>
-            <h4>{shops[params.id].location}</h4>
-            <p>{shops[params.id].description}</p>
+            <h3>{shopMenu.name}</h3>
+            <h4>{shopMenu.location}</h4>
+            <p>{shopMenu.description}</p>
             MENU:
-            {shops[params.id].drinks.map(drink =>(
+            {shopMenu.drinks.map(drink =>(
                 <Drink
                 drink={drink}
                 key={drink.id}
@@ -44,6 +36,9 @@ function DrinkMenu({shops, onDeleteDrink}){
             ))}
             <Link to={`/shops/${params.id}/newdrink`}>
                 Add a New Drink
+            </Link>
+            <Link to={`/shops/${params.id}/edit`}>
+                Edit Shop Info
             </Link>
         </div>
     )

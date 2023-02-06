@@ -14,23 +14,23 @@ function NewDrink({onAddShop}){
         setNewShop((currentShopState)=>(
             {...currentShopState, [event.target.name]: event.target.value}
         ))
-        console.log(newShop)
+        //console.log(newShop)
     }
 
     function handleSubmit(event){
         event.preventDefault()
-        console.log(newShop)
+        //console.log(newShop)
         const formData = {
             name: newShop.name,
             location: newShop.location,
             description: newShop.description
         }
-        fetch(`http://localhost:9292/shops/new`,{
+        fetch(`http://localhost:9292/shops`,{
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData)
         })
-        .then((r)=>r.json)
+        .then((r)=>r.json())
         .then((shop)=>onAddShop(shop))
         setNewShop(initialNewShop)
     }

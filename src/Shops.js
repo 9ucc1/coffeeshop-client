@@ -4,9 +4,9 @@ import NewShop from './NewShop.js'
 
 function Shops({shops}){
 
-    const renderShops = Object.keys(shops).map(shopid =>(
+    const renderShops = shops.map(shop =>(
         <li>
-            <Link to={`/shops/${shopid}`}>{shops[shopid].name}</Link>
+            <Link to={`/shops/${shop.id}`}>{shop.name}</Link>
         </li>
     ))
 
@@ -16,7 +16,7 @@ function Shops({shops}){
         <div>
             {renderShops}
             <Link to="/shops/new">
-                Add a New Shop
+                CREATE NEW SHOP
             </Link>
         </div>
     )
