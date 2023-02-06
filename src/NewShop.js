@@ -1,22 +1,38 @@
 import React, {useState} from 'react'
 
-function NewDrink(){
+function NewDrink({onAddShop}){
 
     const initialNewShop = {
         name: "",
         location: "",
         description: ""
     }
-    
+
     const [newShop, setNewShop] = useState(initialNewShop)
 
     function handleChange(event){
-        console.log('change')
+        setNewShop((currentShopState)=>(
+            {...currentShopState, [event.target.name]: event.target.value}
+        ))
+        console.log(newShop)
     }
 
     function handleSubmit(event){
         event.preventDefault()
-        console.log('shop submit')
+        console.log(newShop)
+        const formData = {
+            name: newShop.name,
+            location: newShop.location,
+            description: newShop.description
+        }
+        fetch(`http://localhost:9292/shops/new`,{
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(formData)
+        })
+        .then((r)=>r.json)
+        .then((shop)=>onAddShop(shop))
+        setNewShop(initialNewShop)
     }
 
     return (

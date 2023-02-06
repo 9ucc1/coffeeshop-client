@@ -26,6 +26,12 @@ function App() {
   //dependency array?
   //????? is this okay?
 
+  function handleAddShop(newShop){
+    console.log("app add shop")
+    setShops([...shops, newShop])
+    console.log(shops)
+  }
+
   function handleAddDrink(newDrink){
     console.log("app add drink")
     //const shopWithAdd = shops.filter((shop) => shop.id === newDrink.shop_id)
@@ -57,7 +63,9 @@ function App() {
           />
         </Route>
         <Route path='/shops/new'>
-          <NewShop />
+          <NewShop 
+          onAddShop={handleAddShop}
+          />
         </Route>
         <Route path='/shops/:id'>
           <DrinkMenu
