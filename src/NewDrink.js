@@ -6,8 +6,8 @@ function NewDrink({shops, onAddDrink}){
     //have a button to get back to the menu
     //useHistory(?) to reroute after form submit
     const params=useParams()
-    const drinkShop = shops.find(shop=>shop.id == params.id)
-    console.log(drinkShop)
+    //const drinkShop = shops.find(shop=>shop.id == params.id)
+    //console.log(drinkShop)
 
     const initialNewDrink = {
         name: "",
@@ -34,7 +34,7 @@ function NewDrink({shops, onAddDrink}){
             //shop_id: drinkShop.id
             shop_id: params.id
         }
-        console.log(formData)
+        console.log("formData submitted:", formData)
         fetch(`http://localhost:9292/shops/${params.id}/drinks`,{
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -59,7 +59,7 @@ function NewDrink({shops, onAddDrink}){
 
     return(
         <div>
-            new drink for {/*shops[params.id].name*/ drinkShop.name}
+            new drink for {/*shops[params.id].name // drinkShop.name*/}
             <form>
             <h3>Drink Name:
                 <input 
@@ -98,7 +98,7 @@ function NewDrink({shops, onAddDrink}){
                 type="checkbox" name="decaf" onChange={handleDecafChange} checked={decafStatus}
             />
                 <button type="submit" onClick={handleSubmit}>
-                    Add to {/*shops[params.id].name*/ drinkShop.name}'s Menu
+                    Add to {/*shops[params.id].name // drinkShop.name*/}'s Menu
                 </button>
         </form>
         <Link to={`/shops/${params.id}`}>

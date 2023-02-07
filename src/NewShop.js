@@ -24,8 +24,7 @@ function NewDrink({onAddShop}){
         const formData = {
             name: newShop.name,
             location: newShop.location,
-            description: newShop.description,
-            drinks: "hello?"
+            description: newShop.description
         }
         //console.log("form", formData)
         fetch(`http://localhost:9292/shops`,{
@@ -34,7 +33,7 @@ function NewDrink({onAddShop}){
             body: JSON.stringify(formData)
         })
         .then((r)=>r.json())
-        .then((shop)=>console.log("handlesubmit", shop))
+        .then((shop)=>onAddShop(shop))
         setNewShop(initialNewShop)
     }
 

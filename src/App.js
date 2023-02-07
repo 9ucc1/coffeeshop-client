@@ -26,34 +26,28 @@ function App() {
         setShops(response)
     })
   }, [])
-  //dependency array?
-  //????? is this okay?
 
   function handleAddShop(newShop){ //this is not receiving my drinks array
     console.log("app add shop", newShop)
     setShops([...shops, newShop])
-    console.log(shops)
   }
 
   function handleAddDrink(newDrink){
-    //console.log("app add drink")
-    const shopWithAdd = shops.filter((shop) => shop.id === newDrink.shop_id)
-    console.log(shopWithAdd)
-    setShops((currentShopsState) => ({...currentShopsState, shopWithAdd: newDrink}))
+    console.log("app add drink:", newDrink)
+    const shopToUpdate = shops.find((shop) => shop.id === newDrink.shop_id)
+    const updatedDrinks = [...shopToUpdate.drinks, newDrink]
+    shopToUpdate.drinks = updatedDrinks
+    const updatedShops = shops.map(shop => shop.id === shopToUpdate.id ? shopToUpdate : shop)
+    setShops(updatedShops)
   }
 
   function handleDeleteDrink(deletedDrink){
-    //shops with the id of deleted drink shop id
-    const shopWithDelete = shops.filter((shop) => shop.id === deletedDrink.shop_id)
-    //console.log(shopWithDelete[0].drinks)
-    const updatedDrinks = shopWithDelete[0].drinks.filter((drink)=> drink.id !== deletedDrink.id)
-    console.log(updatedDrinks)
-    setShops((currentShopsState) => ({...currentShopsState, shopWithDelete: updatedDrinks}))
-    //    function handleChange(event){
-    //  setNewSong((currentSongState)=> (
-    //    {...currentSongState, [event.target.name]: event.target.value}
-    //))}
-
+    console.log("app delete drink:", deletedDrink)
+    const shopToUpdate = shops.find((shop) => shop.id === deletedDrink.shop_id)
+    const updatedDrinks = shopToUpdate.drinks.filter((drink)=> drink.id !== deletedDrink.id)
+    shopToUpdate.drinks = updatedDrinks
+    const updatedShops = shops.map(shop => shop.id === shopToUpdate.id ? shopToUpdate : shop)
+    setShops(updatedShops)
   }
 
   return(
