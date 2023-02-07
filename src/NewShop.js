@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
 
 function NewDrink({onAddShop}){
 
@@ -23,15 +24,17 @@ function NewDrink({onAddShop}){
         const formData = {
             name: newShop.name,
             location: newShop.location,
-            description: newShop.description
+            description: newShop.description,
+            drinks: "hello?"
         }
+        //console.log("form", formData)
         fetch(`http://localhost:9292/shops`,{
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData)
         })
         .then((r)=>r.json())
-        .then((shop)=>onAddShop(shop))
+        .then((shop)=>console.log("handlesubmit", shop))
         setNewShop(initialNewShop)
     }
 
@@ -67,7 +70,9 @@ function NewDrink({onAddShop}){
                     Create New Shop
                 </button>
         </form>
-        <button>Back to Shops</button>
+        <Link to="/shops">
+            Back to Shops
+        </Link>
         </div>
     )
 }

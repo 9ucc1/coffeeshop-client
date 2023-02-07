@@ -29,8 +29,8 @@ function App() {
   //dependency array?
   //????? is this okay?
 
-  function handleAddShop(newShop){
-    console.log("app add shop")
+  function handleAddShop(newShop){ //this is not receiving my drinks array
+    console.log("app add shop", newShop)
     setShops([...shops, newShop])
     console.log(shops)
   }

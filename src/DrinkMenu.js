@@ -15,7 +15,10 @@ function DrinkMenu({shops, onDeleteDrink}){
     //.find on shops, use params id number to find shop, then map over that shop
     //
     const shopMenu = shops.find(shop=> shop.id == params.id)
-    console.log(shopMenu)
+    //console.log(shopMenu.drinks) //returning undefined
+
+    const shopDrinks = shopMenu.drinks
+    //console.log(shopDrinks)
 
     return(
         <div>
@@ -23,7 +26,8 @@ function DrinkMenu({shops, onDeleteDrink}){
             <h4>{shopMenu.location}</h4>
             <p>{shopMenu.description}</p>
             MENU:
-            {shopMenu.drinks.map(drink =>(
+            {
+            shopMenu.drinks.map(drink =>(
                 <Drink
                 drink={drink}
                 key={drink.id}

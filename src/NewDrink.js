@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 
 function NewDrink({shops, onAddDrink}){
 
     //have a button to get back to the menu
     //useHistory(?) to reroute after form submit
     const params=useParams()
-    //console.log(params)
+    const drinkShop = shops.find(shop=>shop.id == params.id)
+    console.log(drinkShop)
 
     const initialNewDrink = {
         name: "",
@@ -29,10 +30,12 @@ function NewDrink({shops, onAddDrink}){
             price: newDrink.price,
             ingredients: newDrink.ingredients,
             description: newDrink.description,
-            shop_id: shops[params.id].id
+            //shop_id: shops[params.id].id
+            //shop_id: drinkShop.id
+            shop_id: params.id
         }
         console.log(formData)
-        fetch(`http://localhost:9292/shops/${shops[params.id].id}/drinks`,{
+        fetch(`http://localhost:9292/shops/${params.id}/drinks`,{
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData),
@@ -56,7 +59,7 @@ function NewDrink({shops, onAddDrink}){
 
     return(
         <div>
-            new drink for {shops[params.id].name}
+            new drink for {/*shops[params.id].name*/ drinkShop.name}
             <form>
             <h3>Drink Name:
                 <input 
@@ -95,10 +98,12 @@ function NewDrink({shops, onAddDrink}){
                 type="checkbox" name="decaf" onChange={handleDecafChange} checked={decafStatus}
             />
                 <button type="submit" onClick={handleSubmit}>
-                    Add to {shops[params.id].name}'s Menu
+                    Add to {/*shops[params.id].name*/ drinkShop.name}'s Menu
                 </button>
         </form>
-        <button>Back to Menu</button>
+        <Link to={`/shops/${params.id}`}>
+                Back to Menu
+        </Link>
         </div>
     )
 }
