@@ -24,8 +24,8 @@ function Header(){
                 exact
                 style={linkStyles}
                 activeStyle={{
-                    background: "white",
-                    color: "cadetblue",
+                    background: "lightgray",
+                    color: "white",
                   }}
             >
                 Home
@@ -35,8 +35,8 @@ function Header(){
                 exact
                 style={linkStyles}
                 activeStyle={{
-                    background: "white",
-                    color: "cadetblue",
+                    background: "lightgray",
+                    color: "white",
                   }}
             >
                 Browse Shops

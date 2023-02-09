@@ -73,6 +73,7 @@ function App() {
         <Route path='/shops/:id'>
           <DrinkMenu
           shops={shops}
+          key={shops.id}
           onDeleteDrink={handleDeleteDrink}
           />
         </Route>

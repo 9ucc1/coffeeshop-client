@@ -59,40 +59,40 @@ function NewDrink({shops, onAddDrink}){
 
     return(
         <div>
-            new drink for {/*shops[params.id].name // drinkShop.name*/}
+            new drink {/*shops[params.id].name // drinkShop.name*/}
             <form>
-            <h3>Drink Name:
+            <h4>Drink Name:
                 <input 
                     type="text" name="name" 
                     value={newDrink.name} 
                     onChange={handleChange}
                     placeholder="enter text"
                 />
-            </h3>
-            <h3>Ingredients:
+            </h4>
+            <h4>Ingredients:
                 <input 
                     type="text" name="ingredients"
                     value={newDrink.ingredients}
                     onChange={handleChange}
                     placeholder="enter text"
                 />
-            </h3>
-            <h3>Description:
+            </h4>
+            <h4>Description:
                 <input 
                     type="text" name="description"
                     value={newDrink.description}
                     onChange={handleChange}
                     placeholder="enter text"
                 />
-            </h3>
-            <h3>Price:
+            </h4>
+            <h4>Price:
                 <input 
                     type="text" name="price"
                     value={newDrink.price}
                     onChange={handleChange}
                     placeholder="enter text"
                 />
-            </h3>
+            </h4>
             <label>Is this a decaf drink?</label>
             <input
                 type="checkbox" name="decaf" onChange={handleDecafChange} checked={decafStatus}

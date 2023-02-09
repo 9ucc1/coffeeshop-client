@@ -1,8 +1,6 @@
 import React from 'react'
 
-function Drink({drink, name, id, shopid, description, onDeleteDrink}){
-
-    //console.log("drink!", drink)
+function Drink({drink, name, id, decaf, ingredients, shopid, description, onDeleteDrink}){
 
     function handleDelete(){
         console.log("delete")
@@ -16,7 +14,9 @@ function Drink({drink, name, id, shopid, description, onDeleteDrink}){
     return (
         <div>
             <h4>{name}</h4>
-            <p>{description}</p>
+            <p>Description: {description}</p>
+            <p>Contains caffeine: {decaf ? "No" : "Yes"}</p>
+            <p>Ingredients: {ingredients}</p>
             <button onClick={handleDelete}>Delete Drink</button>
         </div>
     )
