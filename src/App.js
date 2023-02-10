@@ -34,10 +34,14 @@ function App() {
 
   function handleEditShop(editedShop){
     console.log("app edit shop", editedShop)
+    const updatedShops = shops.map(shop => shop.id === editedShop.id ? editedShop : shop)
+    setShops(updatedShops)
   }
 
   function handleDeleteShop(deletedShop){
     console.log("app delete shop", deletedShop)
+    const updatedShops = shops.filter((shop) => shop.id !== deletedShop.id)
+    setShops(updatedShops)
   }
 
   function handleAddDrink(newDrink){

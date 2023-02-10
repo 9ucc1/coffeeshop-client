@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
-import {useParams, Link} from 'react-router-dom'
+import {useParams, Link, useHistory} from 'react-router-dom'
 
 function EditShop({shops, onEditShop, onDeleteShop}){
 
+    const history=useHistory()
     const params=useParams()
     const shopToEdit = shops.find((shop)=> shop.id == params.id)
 
@@ -17,13 +18,14 @@ function EditShop({shops, onEditShop, onDeleteShop}){
         setEditShop((currentShop)=>(
             {...currentShop, [event.target.name]: event.target.value})
             )
-        console.log(editShop)
+        //console.log(editShop)
     }
 
     function handleSubmit(event){
         event.preventDefault()
         console.log("submit")
         const formData = {
+            name: shopToEdit.name,
             location: editShop.location,
             description: editShop.description
         }
@@ -43,6 +45,7 @@ function EditShop({shops, onEditShop, onDeleteShop}){
         })
         .then((r)=>r.json())
         .then(shop=>onDeleteShop(shop))
+        history.push("/shops")
         alert("shop deleted!")
     }
 
