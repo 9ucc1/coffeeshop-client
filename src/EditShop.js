@@ -36,6 +36,7 @@ function EditShop({shops, onEditShop, onDeleteShop}){
         })
         .then((r)=>r.json())
         .then((shop)=>onEditShop(shop))
+        history.push(`/shops/${params.id}`)
         alert("changes saved!")
     }
 

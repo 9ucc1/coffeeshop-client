@@ -47,6 +47,8 @@ function NewDrink({shops, onAddDrink}){
         alert('drink created!')
     }
 
+    //post to /drinks instead of /shops
+
     function handleDecafChange(event){
         setDecafStatus(event.target.checked)
     }

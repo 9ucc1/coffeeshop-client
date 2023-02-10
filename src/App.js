@@ -11,7 +11,7 @@ import EditShop from './EditShop.js'
 // deploy: render, netlify, aws(big one)
 // osi model
 
-// stretch: display all drinks page
+// stretch: display all drinks page?
 
 function App() {
 
@@ -28,11 +28,12 @@ function App() {
   }, [])
 
   function handleAddShop(newShop){ //this is not receiving my drinks array
+    //or initializing with a empty drinks array?
     console.log("app add shop", newShop)
     setShops([...shops, newShop])
   }
 
-  function handleEditShop(editedShop){
+  function handleEditShop(editedShop){ //also issues
     console.log("app edit shop", editedShop)
     const updatedShops = shops.map(shop => shop.id === editedShop.id ? editedShop : shop)
     setShops(updatedShops)

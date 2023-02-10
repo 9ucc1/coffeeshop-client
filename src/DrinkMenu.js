@@ -7,6 +7,7 @@ function DrinkMenu({shops, onDeleteDrink}){
     const params=useParams()
     const shopInfo = shops.find(shop=> shop.id == params.id)
     //console.log("shopInfo:", shopInfo)
+    // if shops.drinks doesnt exist, display some message
 
     return(
         <div>
@@ -36,6 +37,9 @@ function DrinkMenu({shops, onDeleteDrink}){
                 onDeleteDrink={onDeleteDrink}
                 />
             ))}
+            <Link to="/shops">
+                Back to All Shops
+            </Link>
         </div>
     )
 }

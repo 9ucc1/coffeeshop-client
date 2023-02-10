@@ -14,6 +14,7 @@ function Shops({shops}){
     return(
         <div>
             {renderShops}
+            <br></br>
             <Link to="/shops/new">
                 CREATE NEW SHOP
             </Link>
