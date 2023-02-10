@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useParams, Link} from 'react-router-dom'
 
-function EditShop({shops}){
+function EditShop({shops, onEditShop, onDeleteShop}){
 
     const params=useParams()
     const shopToEdit = shops.find((shop)=> shop.id == params.id)
@@ -33,8 +33,17 @@ function EditShop({shops}){
             body: JSON.stringify(formData)
         })
         .then((r)=>r.json())
-        .then((shop)=>console.log(shop))
+        .then((shop)=>onEditShop(shop))
         alert("changes saved!")
+    }
+
+    function handleDelete(){
+        fetch(`http://localhost:9292/shops/${params.id}`,{
+            method: "DELETE",
+        })
+        .then((r)=>r.json())
+        .then(shop=>onDeleteShop(shop))
+        alert("shop deleted!")
     }
 
     return (
@@ -62,7 +71,7 @@ function EditShop({shops}){
                 </button>
         </form>
 
-        <button>
+        <button onClick={handleDelete}>
             Delete Shop?
         </button>
         <br></br>

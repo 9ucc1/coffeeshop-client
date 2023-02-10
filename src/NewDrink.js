@@ -44,6 +44,7 @@ function NewDrink({shops, onAddDrink}){
         .then(drink=>onAddDrink(drink))
         setNewDrink(initialNewDrink)
         setDecafStatus(false)
+        alert('drink created!')
     }
 
     function handleDecafChange(event){

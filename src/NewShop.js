@@ -35,6 +35,7 @@ function NewDrink({onAddShop}){
         .then((r)=>r.json())
         .then((shop)=>onAddShop(shop))
         setNewShop(initialNewShop)
+        alert('shop created!')
     }
 
     return (

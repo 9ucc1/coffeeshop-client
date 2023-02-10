@@ -32,6 +32,14 @@ function App() {
     setShops([...shops, newShop])
   }
 
+  function handleEditShop(editedShop){
+    console.log("app edit shop", editedShop)
+  }
+
+  function handleDeleteShop(deletedShop){
+    console.log("app delete shop", deletedShop)
+  }
+
   function handleAddDrink(newDrink){
     console.log("app add drink:", newDrink)
     const shopToUpdate = shops.find((shop) => shop.id === newDrink.shop_id)
@@ -68,6 +76,8 @@ function App() {
         <Route path='/shops/:id/edit'>
           <EditShop 
           shops={shops}
+          onEditShop={handleEditShop}
+          onDeleteShop={handleDeleteShop}
           />
         </Route>
         <Route path='/shops/:id'>
