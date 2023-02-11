@@ -1,13 +1,10 @@
 import React, {useState} from 'react'
-import {useParams, Link} from 'react-router-dom'
+import {useParams, useHistory, Link} from 'react-router-dom'
 
 function NewDrink({shops, onAddDrink}){
 
-    //have a button to get back to the menu
-    //useHistory(?) to reroute after form submit
     const params=useParams()
-    //const drinkShop = shops.find(shop=>shop.id == params.id)
-    //console.log(drinkShop)
+    const history=useHistory()
 
     const initialNewDrink = {
         name: "",
@@ -33,11 +30,6 @@ function NewDrink({shops, onAddDrink}){
             shop_id: params.id
         }
         console.log("formData submitted:", formData)
-        /*fetch(`http://localhost:9292/shops/${params.id}/drinks`,{
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(formData),
-        })*/
         fetch(`http://localhost:9292/drinks`,{
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -47,10 +39,9 @@ function NewDrink({shops, onAddDrink}){
         .then(drink=>onAddDrink(drink))
         setNewDrink(initialNewDrink)
         setDecafStatus(false)
+        history.push(`/shops/${params.id}`)
         alert('drink created!')
     }
-
-    //post to /drinks instead of /shops
 
     function handleDecafChange(event){
         setDecafStatus(event.target.checked)
@@ -60,12 +51,11 @@ function NewDrink({shops, onAddDrink}){
         setNewDrink((currentNewDrink)=>(
             {...currentNewDrink, [event.target.name]: event.target.value}
         ))
-        //console.log(newDrink)
     }
 
     return(
         <div>
-            new drink {/*shops[params.id].name // drinkShop.name*/}
+            New Drink
             <form>
             <h4>Drink Name:
                 <input 
@@ -104,7 +94,7 @@ function NewDrink({shops, onAddDrink}){
                 type="checkbox" name="decaf" onChange={handleDecafChange} checked={decafStatus}
             />
                 <button type="submit" onClick={handleSubmit}>
-                    Add to {/*shops[params.id].name // drinkShop.name*/}'s Menu
+                    Add to Menu
                 </button>
         </form>
         <Link to={`/shops/${params.id}`}>

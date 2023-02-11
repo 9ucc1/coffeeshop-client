@@ -6,7 +6,7 @@ function DrinkMenu({shops, onDeleteDrink}){
 
     const params=useParams()
     const shopInfo = shops.find(shop=> shop.id == params.id)
-    //console.log("shopInfo:", shopInfo)
+
     // if shops.drinks doesnt exist, display some message
 
     return(
@@ -32,6 +32,7 @@ function DrinkMenu({shops, onDeleteDrink}){
                 id={drink.id}
                 decaf={drink.decaf}
                 ingredients={drink.ingredients}
+                price={drink.price}
                 shopid={drink.shop_id}
                 description={drink.description}
                 onDeleteDrink={onDeleteDrink}

@@ -7,6 +7,7 @@ import NewDrink from './NewDrink.js'
 import DrinkMenu from './DrinkMenu.js'
 import NewShop from './NewShop.js'
 import EditShop from './EditShop.js'
+import EditDrink from './EditDrink.js'
 
 // deploy: render, netlify, aws(big one)
 // osi model
@@ -24,6 +25,7 @@ function App() {
         setShops(response)
     })
   }, [])
+  //multiple fetches?
 
   function handleAddShop(newShop){
     console.log("app add shop", newShop)
@@ -93,6 +95,12 @@ function App() {
           <Shops 
           shops={shops}
           />
+        </Route>
+        <Route path='/drinks/:id/edit'>
+          <EditDrink />
+        </Route>
+        <Route path='/drinks'>
+
         </Route>
         <Route path='/'>
           <Homepage/>
