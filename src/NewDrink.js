@@ -30,12 +30,15 @@ function NewDrink({shops, onAddDrink}){
             price: newDrink.price,
             ingredients: newDrink.ingredients,
             description: newDrink.description,
-            //shop_id: shops[params.id].id
-            //shop_id: drinkShop.id
             shop_id: params.id
         }
         console.log("formData submitted:", formData)
-        fetch(`http://localhost:9292/shops/${params.id}/drinks`,{
+        /*fetch(`http://localhost:9292/shops/${params.id}/drinks`,{
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(formData),
+        })*/
+        fetch(`http://localhost:9292/drinks`,{
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData),

@@ -8,24 +8,6 @@ An app that displays coffee drinks offered by a variety of different coffee shop
 Functionality:
 Browse what various coffee shops have to offer. A user could potentially use an app like this to discover their new favorite drink from browsing the existing listings, or use it as a coffee journal and update the database with new drinks they've tried from different cafes.
 
-Completed goals:
-- Backend table creation migrations 1/28
-- Seed data 1/29
-- First routes for shop data 1/29
-- First fetch from frontend for shop data 1/29
-
-Current goals:
-- Create a functional frontend:
-    - Browse shops page should map through shop data with links to the drink menu
-    - Drink menu should map through the shop's unique drinks with edit/delete option
-    - New drink form that submits new drink, persists in backend
-- Have frontend effectively communicate with backend
-    - create routes in backend for CRUD
-
-Stretch goals:
-- Form to create new coffee shop that persists in backend
-- Edit/delete capability for shops
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
