@@ -19,15 +19,33 @@ function EditDrink({drinks, onEditDrink}){
     function handleChange(event){
         console.log("change")
         setEditDrink(currentDrink => ({...currentDrink, [event.target.name]: event.target.value}))
+        console.log(editDrink)
     }
     
     function handleDecafChange(event){
+        setDecafStatus(event.target.checked)
         console.log("change")
     }
 
     function handleSubmit(event){
         event.preventDefault()
         console.log("change")
+        const formData = {
+            name: editDrink.name,
+            description: editDrink.description,
+            price: editDrink.price,
+            ingredients: editDrink.ingredients,
+            decaf: decafStatus,
+            shop_id: drinkToEdit.shop_id
+        }
+        fetch(`http://localhost:9292/drinks/${params.id}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(formData)
+        })
+        .then(r=>r.json())
+        .then(drink=>console.log(drink))
+        alert("changes saved!")
     }
 
     return (
