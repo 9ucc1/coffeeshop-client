@@ -66,7 +66,7 @@ function NewDrink({shops, onAddDrink}){
                 />
             </h4>
             <h4>Ingredients:
-                <input 
+                <textarea 
                     type="text" name="ingredients"
                     value={newDrink.ingredients}
                     onChange={handleChange}
@@ -74,7 +74,7 @@ function NewDrink({shops, onAddDrink}){
                 />
             </h4>
             <h4>Description:
-                <input 
+                <textarea 
                     type="text" name="description"
                     value={newDrink.description}
                     onChange={handleChange}

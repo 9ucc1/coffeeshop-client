@@ -3,11 +3,11 @@ import { Route, Switch, useParams } from 'react-router-dom'
 import Header from './Header.js' 
 import Homepage from './Homepage.js'
 import Shops from './Shops.js'
-import Drinks from './Drinks.js'
-import NewDrink from './NewDrink.js'
-import DrinkMenu from './DrinkMenu.js'
+import Shop from './Shop.js'
 import NewShop from './NewShop.js'
 import EditShop from './EditShop.js'
+import Drinks from './Drinks.js'
+import NewDrink from './NewDrink.js'
 import EditDrink from './EditDrink.js'
 
 // deploy: render, netlify, aws(big one)
@@ -30,7 +30,6 @@ function App() {
       .then(r=>r.json())
       .then(r=>setDrinks(r))
   }, [])
-  //multiple fetches?
 
   function handleAddShop(newShop){
     console.log("app add shop", newShop)
@@ -56,6 +55,10 @@ function App() {
     shopToUpdate.drinks = updatedDrinks
     const updatedShops = shops.map(shop => shop.id === shopToUpdate.id ? shopToUpdate : shop)
     setShops(updatedShops)
+  }
+
+  function handleEditDrink(editedDrink){
+    console.log("app edit drink:", editedDrink)
   }
 
   function handleDeleteDrink(deletedDrink){
@@ -90,7 +93,7 @@ function App() {
           />
         </Route>
         <Route path='/shops/:id'>
-          <DrinkMenu
+          <Shop
           shops={shops}
           key={shops.id}
           onDeleteDrink={handleDeleteDrink}
@@ -102,10 +105,14 @@ function App() {
           />
         </Route>
         <Route path='/drinks/:id/edit'>
-          <EditDrink />
+          <EditDrink 
+          onEditDrink={handleEditDrink}
+          drinks={drinks}
+          />
         </Route>
         <Route path='/drinks'>
           <Drinks 
+          shops={shops}
           drinks={drinks}
           />
         </Route>

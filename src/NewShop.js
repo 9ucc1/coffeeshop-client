@@ -59,7 +59,7 @@ function NewDrink({onAddShop}){
                 />
             </h3>
             <h3>Description:
-                <input 
+                <textarea 
                     type="text" name="description"
                     value={newShop.description}
                     onChange={handleChange}
