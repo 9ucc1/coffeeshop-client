@@ -3,6 +3,7 @@ import { Route, Switch, useParams } from 'react-router-dom'
 import Header from './Header.js' 
 import Homepage from './Homepage.js'
 import Shops from './Shops.js'
+import Drinks from './Drinks.js'
 import NewDrink from './NewDrink.js'
 import DrinkMenu from './DrinkMenu.js'
 import NewShop from './NewShop.js'
@@ -15,6 +16,7 @@ import EditDrink from './EditDrink.js'
 function App() {
 
   const [shops, setShops] = useState([])
+  const [drinks, setDrinks] = useState([])
 
   const params = useParams()
 
@@ -24,6 +26,9 @@ function App() {
       .then(response=>{
         setShops(response)
     })
+      fetch("http://localhost:9292/drinks")
+      .then(r=>r.json())
+      .then(r=>setDrinks(r))
   }, [])
   //multiple fetches?
 
@@ -100,7 +105,9 @@ function App() {
           <EditDrink />
         </Route>
         <Route path='/drinks'>
-
+          <Drinks 
+          drinks={drinks}
+          />
         </Route>
         <Route path='/'>
           <Homepage/>

@@ -1,10 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
-// app title above navbar links
-// buttons/routes here
-// new order, orders placed
-
 const linkStyles = {
     display: "inline-block",
     width: "100px",
@@ -25,7 +21,7 @@ function Header(){
                 style={linkStyles}
                 activeStyle={{
                     background: "lightgray",
-                    color: "white",
+                    color: "black",
                   }}
             >
                 Home
@@ -36,10 +32,21 @@ function Header(){
                 style={linkStyles}
                 activeStyle={{
                     background: "lightgray",
-                    color: "white",
+                    color: "black",
                   }}
             >
                 Browse Shops
+            </NavLink>
+            <NavLink
+                to="/drinks"
+                exact
+                style={linkStyles}
+                activeStyle={{
+                    background: "lightgray",
+                    color: "black",
+                  }}
+            >
+                Browse Drinks
             </NavLink>
         </div>
     )
