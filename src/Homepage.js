@@ -5,7 +5,7 @@ function Homepage(){
         <div>
             A collection of coffee shops with interesting novelty drinks!
             <br></br>
-            Discover your next favorite or contribute to the database by adding your own shops or drinks.
+            Keep track of the interesting drinks you've tried and rate how you felt about it.
         </div>
     )
 }

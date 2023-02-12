@@ -57,8 +57,20 @@ function App() {
     setShops(updatedShops)
   }
 
+  /*function handleEditDrink(editedDrink){
+    console.log("app edit drink:", editedDrink)
+    const updatedDrinks = drinks.map((drink) => drink.id === editedDrink.id ? editedDrink : drink)
+    setDrinks(updatedDrinks)
+  }*/
+  //why doesnt ^ work?
+
   function handleEditDrink(editedDrink){
     console.log("app edit drink:", editedDrink)
+    const shopToUpdate = shops.find((shop) => shop.id === editedDrink.shop_id)
+    const updatedDrinks = shopToUpdate.drinks.map(drink=>drink.id === editedDrink.id ? editedDrink : drink)
+    shopToUpdate.drinks = updatedDrinks
+    const updatedShops = shops.map(shop => shop.id === shopToUpdate.id ? shopToUpdate : shop)
+    setShops(updatedShops)
   }
 
   function handleDeleteDrink(deletedDrink){

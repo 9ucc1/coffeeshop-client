@@ -9,7 +9,8 @@ function Shop({shops, onDeleteDrink}){
 
     // if shops.drinks doesnt exist, display some message
 
-    const renderDrinks = (shopInfo.drinks.length === 0) ? 
+    const renderDrinks = (shopInfo.drinks.length === 0) 
+    ? 
     (<h4>This shop has no drinks yet! Add a new drink by clicking the link above.</h4>)
     :
     shopInfo.drinks.map(drink =>(
@@ -40,7 +41,7 @@ function Shop({shops, onDeleteDrink}){
                 Edit Shop Info
             </Link>
             <br/>
-            <h3>MENU</h3>
+            <h3>{shopInfo.name}'s Drinks</h3>
             {renderDrinks}
             {/*
             shopInfo.drinks.map(drink =>(

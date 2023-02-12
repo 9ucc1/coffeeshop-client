@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
-import {Link, useParams} from 'react-router-dom'
+import {Link, useParams, useHistory} from 'react-router-dom'
 
 function EditDrink({drinks, onEditDrink}){
 
-    const params=useParams()
+    const history = useHistory()
+    const params = useParams()
     const drinkToEdit = drinks.find((drink)=> drink.id == params.id)
     
-    const initialDrink={
+    const initialDrink = {
         name: drinkToEdit.name,
         description: drinkToEdit.description,
         price: drinkToEdit.price,
@@ -44,8 +45,9 @@ function EditDrink({drinks, onEditDrink}){
             body: JSON.stringify(formData)
         })
         .then(r=>r.json())
-        .then(drink=>console.log(drink))
+        .then(drink=>onEditDrink(drink))
         alert("changes saved!")
+        history.push(`/shops/${drinkToEdit.shop_id}`)
     }
 
     return (

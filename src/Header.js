@@ -14,7 +14,7 @@ const linkStyles = {
 function Header(){
     return(
         <div>
-            <h3>Coffee Shop Explorer</h3>
+            <h3>Coffee Shop Diary</h3>
             <NavLink
                 to="/"
                 exact
@@ -46,7 +46,7 @@ function Header(){
                     color: "black",
                   }}
             >
-                Browse Drinks
+                All Drinks
             </NavLink>
         </div>
     )
