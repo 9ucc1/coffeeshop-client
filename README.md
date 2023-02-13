@@ -6,7 +6,7 @@ Overview:
 An app that displays coffee drinks offered by a variety of different coffee shops, in a one to many relationship model (a coffee shop **has many** drinks, each drink **belongs to** one coffee shop.) The user can create, read, update, and delete drinks from the shops.
 
 Functionality:
-Browse what various coffee shops have to offer. A user could potentially use an app like this to discover their new favorite drink from browsing the existing listings, or use it as a coffee journal and update the database with new drinks they've tried from different cafes.
+Browse what various coffee shops have to offer. A user can use an app like this to discover their new favorite drink from browsing the existing listings, or use it as a coffee journal and update the database with new drinks they've tried from different cafes.
 
 # Getting Started with Create React App
 

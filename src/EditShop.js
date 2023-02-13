@@ -3,6 +3,8 @@ import {useParams, Link, useHistory} from 'react-router-dom'
 
 function EditShop({shops, onEditShop, onDeleteShop}){
 
+    //when shop is deleted, delete its drinks too
+
     const history=useHistory()
     const params=useParams()
     const shopToEdit = shops.find((shop)=> shop.id == params.id)
@@ -18,7 +20,6 @@ function EditShop({shops, onEditShop, onDeleteShop}){
         setEditShop((currentShop)=>(
             {...currentShop, [event.target.name]: event.target.value})
             )
-        //console.log(editShop)
     }
 
     function handleSubmit(event){
@@ -48,6 +49,7 @@ function EditShop({shops, onEditShop, onDeleteShop}){
         .then(shop=>onDeleteShop(shop))
         history.push("/shops")
         alert("shop deleted!")
+        //can I delete the shop's drinks in the same go
     }
 
     return (
