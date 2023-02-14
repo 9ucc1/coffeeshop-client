@@ -1,9 +1,19 @@
 import React, {useState} from 'react'
 import {useParams, Link, useHistory} from 'react-router-dom'
+import styled from 'styled-components'
 
 function EditShop({shops, onEditShop, onDeleteShop}){
 
     //when shop is deleted, delete its drinks too
+
+    const FormHeader = styled.div`
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    padding-top: 100px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    `;
 
     const history=useHistory()
     const params=useParams()
@@ -54,7 +64,7 @@ function EditShop({shops, onEditShop, onDeleteShop}){
 
     return (
         <div>
-            edit {shopToEdit.name}'s info
+            <FormHeader>edit {shopToEdit.name}'s info</FormHeader>
             <form>
             <h4>Location:
                 <input 

@@ -1,7 +1,17 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
+import styled from 'styled-components'
 
 function NewDrink({onAddShop}){
+
+    const FormHeader = styled.div`
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    padding-top: 100px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    `;
 
     const initialNewShop = {
         name: "",
@@ -40,9 +50,9 @@ function NewDrink({onAddShop}){
 
     return (
         <div>
-            new shop form
+            <FormHeader>New Shop Form</FormHeader>
             <form>
-            <h3>Shop Name
+            <h3>Shop Name: 
                 <input 
                     type="text" name="name" 
                     value={newShop.name} 
@@ -50,7 +60,7 @@ function NewDrink({onAddShop}){
                     placeholder="enter text"
                 />
             </h3>
-            <h3>Location:
+            <h3>Location: 
                 <input 
                     type="text" name="location"
                     value={newShop.location}
@@ -58,7 +68,7 @@ function NewDrink({onAddShop}){
                     placeholder="enter text"
                 />
             </h3>
-            <h3>Description:
+            <h3>Description: 
                 <textarea 
                     type="text" name="description"
                     value={newShop.description}

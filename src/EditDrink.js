@@ -1,7 +1,17 @@
 import React, {useState} from 'react'
 import {Link, useParams, useHistory} from 'react-router-dom'
+import styled from 'styled-components'
 
 function EditDrink({drinks, onEditDrink}){
+
+    const FormHeader = styled.div`
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    padding-top: 100px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    `;
 
     const history = useHistory()
     const params = useParams()
@@ -52,7 +62,7 @@ function EditDrink({drinks, onEditDrink}){
 
     return (
         <div>
-            Edit {drinkToEdit.name}
+            <FormHeader>Edit {drinkToEdit.name}</FormHeader>
             <form>
             <h4>Name:
                 <input 

@@ -1,7 +1,17 @@
 import React, {useState} from 'react'
 import {useParams, useHistory, Link} from 'react-router-dom'
+import styled from 'styled-components'
 
 function NewDrink({shops, onAddDrink}){
+
+    const FormHeader = styled.div`
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    padding-top: 100px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    `;
 
     const params=useParams()
     const history=useHistory()
@@ -55,7 +65,7 @@ function NewDrink({shops, onAddDrink}){
 
     return(
         <div>
-            New Drink
+            <FormHeader>New Drink</FormHeader>
             <form>
             <h4>Drink Name:
                 <input 
