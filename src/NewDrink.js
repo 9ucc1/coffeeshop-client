@@ -20,7 +20,8 @@ function NewDrink({shops, onAddDrink}){
         name: "",
         ingredients: "",
         description: "",
-        price: ""
+        price: "",
+        image: ""
     }
 
     const [newDrink, setNewDrink] = useState(initialNewDrink)
@@ -37,6 +38,7 @@ function NewDrink({shops, onAddDrink}){
             price: newDrink.price,
             ingredients: newDrink.ingredients,
             description: newDrink.description,
+            image: newDrink.image,
             shop_id: params.id
         }
         console.log("formData submitted:", formData)
@@ -97,6 +99,14 @@ function NewDrink({shops, onAddDrink}){
                     value={newDrink.price}
                     onChange={handleChange}
                     placeholder="enter text"
+                />
+            </h4>
+            <h4>Image URL:
+                <input 
+                    type="text" name="image"
+                    value={newDrink.image}
+                    onChange={handleChange}
+                    placeholder="enter URL"
                 />
             </h4>
             <label>Is this a decaf drink?</label>

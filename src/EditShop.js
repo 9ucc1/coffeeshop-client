@@ -21,7 +21,8 @@ function EditShop({shops, onEditShop, onDeleteShop}){
 
     const initialShop = {
         location: shopToEdit.location,
-        description: shopToEdit.location
+        description: shopToEdit.location,
+        image: shopToEdit.image
     }
 
     const [editShop, setEditShop] = useState(initialShop)
@@ -38,7 +39,8 @@ function EditShop({shops, onEditShop, onDeleteShop}){
         const formData = {
             name: shopToEdit.name,
             location: editShop.location,
-            description: editShop.description
+            description: editShop.description,
+            image: editShop.image
         }
         fetch(`http://localhost:9292/shops/${params.id}`,{
             method: "PATCH",
@@ -80,6 +82,14 @@ function EditShop({shops, onEditShop, onDeleteShop}){
                     value={editShop.description}
                     onChange={handleChange}
                     placeholder="enter text"
+                />
+            </h4>
+            <h4>Image URL:
+                <input 
+                    type="text" name="image"
+                    value={editShop.image}
+                    onChange={handleChange}
+                    placeholder="enter URL"
                 />
             </h4>
                 <button type="submit" onClick={handleSubmit}>

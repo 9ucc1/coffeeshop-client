@@ -21,7 +21,8 @@ function EditDrink({drinks, onEditDrink}){
         name: drinkToEdit.name,
         description: drinkToEdit.description,
         price: drinkToEdit.price,
-        ingredients: drinkToEdit.ingredients
+        ingredients: drinkToEdit.ingredients,
+        image: drinkToEdit.image
     }
 
     const [editDrink, setEditDrink] = useState(initialDrink)
@@ -47,6 +48,7 @@ function EditDrink({drinks, onEditDrink}){
             price: editDrink.price,
             ingredients: editDrink.ingredients,
             decaf: decafStatus,
+            image: editDrink.image,
             shop_id: drinkToEdit.shop_id
         }
         fetch(`http://localhost:9292/drinks/${params.id}`, {
@@ -94,6 +96,14 @@ function EditDrink({drinks, onEditDrink}){
                     value={editDrink.ingredients}
                     onChange={handleChange}
                     placeholder="enter text"
+                />
+            </h4>
+            <h4>Image URL:
+                <input 
+                    type="text" name="image"
+                    value={editDrink.image}
+                    onChange={handleChange}
+                    placeholder="enter URL"
                 />
             </h4>
             <label>Is this a decaf drink?</label>

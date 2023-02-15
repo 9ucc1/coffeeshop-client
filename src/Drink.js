@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-function Drink({drink, name, id, decaf, ingredients, price, description, onDeleteDrink}){
+function Drink({drink, image, name, id, decaf, ingredients, price, description, onDeleteDrink}){
 
     function handleDelete(){
         console.log("delete")
@@ -12,10 +12,9 @@ function Drink({drink, name, id, decaf, ingredients, price, description, onDelet
         .then(()=>onDeleteDrink(drink))
     }
 
-    //makes drinks editable
-
     return (
         <div>
+            <img src={image}></img>
             <h4>{name}</h4>
             <p>Price: {price}</p>
             <p>Description: {description}</p>

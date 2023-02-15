@@ -16,7 +16,8 @@ function NewDrink({onAddShop}){
     const initialNewShop = {
         name: "",
         location: "",
-        description: ""
+        description: "",
+        image: ""
     }
 
     const [newShop, setNewShop] = useState(initialNewShop)
@@ -34,7 +35,8 @@ function NewDrink({onAddShop}){
         const formData = {
             name: newShop.name,
             location: newShop.location,
-            description: newShop.description
+            description: newShop.description,
+            image: newShop.image
         }
         //console.log("form", formData)
         fetch(`http://localhost:9292/shops`,{
@@ -74,6 +76,14 @@ function NewDrink({onAddShop}){
                     value={newShop.description}
                     onChange={handleChange}
                     placeholder="enter text"
+                />
+            </h3>
+            <h3>Image URL:
+                <input 
+                    type="text" name="image"
+                    value={newShop.image}
+                    onChange={handleChange}
+                    placeholder="enter URL"
                 />
             </h3>
                 <button type="submit" onClick={handleSubmit}>

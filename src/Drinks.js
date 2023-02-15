@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 function Drinks({shops, drinks}){
     
+    //HOW TO FIND SHOP NAME
     //add search bar?
 
     const Background = styled.div`
@@ -12,7 +13,7 @@ function Drinks({shops, drinks}){
     padding-top: 80px;
     padding-bottom: 80px;
     text-align: center;
-`;
+    `
     const Wrapper = styled.div`
     padding: 0.5em;
     background: white;
@@ -35,6 +36,7 @@ function Drinks({shops, drinks}){
         //{const drinkShop = shops.find(shop=> shop.id === drink.shop_id)}
         <div>
             <Wrapper>
+            <img src={drink.image}></img>
             <h4>{drink.name}</h4>
             <p>{drink.description}</p>
             <p>Served at: {drink.shop_id}</p>

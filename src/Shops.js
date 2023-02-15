@@ -20,10 +20,11 @@ const Wrapper = styled.p`
     background: white;
     border: solid;
     border-color: tan;
-    width: 200px;
-    height: 50px;
+    width: 250px;
+    height: 100px;
     font-family: "Lucida Console", "Courier New", monospace;
     text-align: right;
+    column-count: 2;
 `;
 
 const FormButton = styled.p`
@@ -41,6 +42,7 @@ const FormButton = styled.p`
 const renderShops = shops.map(shop =>(
         
     <Wrapper>
+        <img src={shop.image}></img>
         <Link to={`/shops/${shop.id}`}>{shop.name}</Link>
     </Wrapper>
 ))

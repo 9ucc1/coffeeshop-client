@@ -38,6 +38,7 @@ function Shop({shops, onDeleteDrink}){
         ingredients={drink.ingredients}
         price={drink.price}
         shopid={drink.shop_id}
+        image={drink.image}
         description={drink.description}
         onDeleteDrink={onDeleteDrink}
         />
