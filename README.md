@@ -3,7 +3,7 @@
 The server for this project can be found [here.](https://github.com/9ucc1/coffeeshop-server)
 
 ## Overview:
-An app that displays coffee drinks offered by a variety of different coffee shops, in a one to many relationship model (a coffee shop **has many** drinks, each drink **belongs to** one coffee shop.) The user can create, read, update, and delete drinks from the shops.
+An app that displays coffee drinks offered by a variety of different coffee shops, in a one to many relationship model (a coffee shop **has many** drinks, each drink **belongs to** one coffee shop.) The user can create, read, update, and delete both drinks and shops.
 
 ## Functionality:
 Browse what various coffee shops have to offer. A user can use an app like this to discover their new favorite drink from browsing the existing listings, or use it as a coffee journal and update the database with new drinks they've tried from different cafes.
@@ -12,37 +12,33 @@ Browse what various coffee shops have to offer. A user can use an app like this 
 
 ![](coffeeappgif.gif)
 
-# Getting Started with Create React App
+## Technologies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The app utilizes JavaScript, React.js, JSX, HTML, CSS, Ruby, Active Record, and Sinatra. Styled-components was used for styling within components.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To run the app locally, clone this GitHub repository into your machine with 'git clone', and do the same with the [project server.](https://github.com/9ucc1/coffeeshop-server)
 
-### `npm start`
+In the root directory of the server repository, run 'rake server' to start the backend server at [http://localhost:9292](http://localhost:9292). Data for this project is stored at [http://localhost:9292/shops](http://localhost:9292/shops) and [http://localhost:9292/drinks](http://localhost:9292/drinks).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In the frontend, install packages with run 'npm install' in the root directory of the repository. Running 'npm start' runs the frontend at [http://localhost:3000](http://localhost:3000).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Inspiration and Future Direction
 
-### `npm test`
+This project was inspired by a personal passion for exploring local coffee shops and trying new drinks. I wanted to create an app that allows users to organize drinks and cafes they have tried, and perhaps share with others to allow someone else to discover something new.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To improve this project in the near future, a sort/filter function or search bar could be added to the shops and drinks page as the amount of data increases. A rating system or favorite button could be added to shops and drinks to distinguish a user's personal preferences.
 
-### `npm run build`
+To improve this project in the distant future, user logins could be implemented to persist data from unique users and make the experience more personalized. Users could share their favorite drinks/shops in a feed, or send their picks to other users.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Authors and Acknowledgement
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project was completed by Gucci Fan for Phase 3 of the Software Engineering course at Flatiron School.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Sources
 
+Shop logo images are credited to the corresponding coffee shop and their webpage. Drink images were pulled from Google Images.
 
 ## MIT License
 
