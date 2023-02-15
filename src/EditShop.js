@@ -21,7 +21,7 @@ function EditShop({shops, onEditShop, onDeleteShop}){
 
     const initialShop = {
         location: shopToEdit.location,
-        description: shopToEdit.location,
+        description: shopToEdit.description,
         image: shopToEdit.image
     }
 
@@ -69,7 +69,7 @@ function EditShop({shops, onEditShop, onDeleteShop}){
             <FormHeader>edit {shopToEdit.name}'s info</FormHeader>
             <form>
             <h4>Location:
-                <input 
+                <textarea 
                     type="text" name="location"
                     value={editShop.location}
                     onChange={handleChange}
@@ -77,7 +77,7 @@ function EditShop({shops, onEditShop, onDeleteShop}){
                 />
             </h4>
             <h4>Description:
-                <input 
+                <textarea 
                     type="text" name="description"
                     value={editShop.description}
                     onChange={handleChange}

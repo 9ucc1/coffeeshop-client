@@ -1,5 +1,5 @@
 import React from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 function Drinks({shops, drinks}){
@@ -39,7 +39,9 @@ function Drinks({shops, drinks}){
             <img src={drink.image}></img>
             <h4>{drink.name}</h4>
             <p>{drink.description}</p>
-            <p>Served at: {drink.shop_id}</p>
+            <Link to={`/shops/${drink.shop_id}`}>
+                Visit this drink's shop
+            </Link>
             </Wrapper>
         </div>
     ))
