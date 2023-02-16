@@ -2,7 +2,7 @@ import React from 'react'
 import {useParams, Link} from 'react-router-dom'
 import styled from 'styled-components'
 
-function Drinks({shops, drinks}){
+function Drinks({drinks}){
     
     //HOW TO FIND SHOP NAME
     //add search bar?
@@ -30,10 +30,7 @@ function Drinks({shops, drinks}){
     flex-wrap: wrap;
     `
 
-    const params=useParams()
-
     const renderDrinks = drinks.map(drink =>(
-        //{const drinkShop = shops.find(shop=> shop.id === drink.shop_id)}
         <div>
             <Wrapper>
             <img src={drink.image}></img>

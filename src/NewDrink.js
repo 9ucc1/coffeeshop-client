@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useParams, useHistory, Link} from 'react-router-dom'
 import styled from 'styled-components'
 
-function NewDrink({shops, onAddDrink}){
+function NewDrink({onAddDrink}){
 
     const FormHeader = styled.div`
     font-size: 1em;
@@ -26,8 +26,6 @@ function NewDrink({shops, onAddDrink}){
 
     const [newDrink, setNewDrink] = useState(initialNewDrink)
     const [decafStatus, setDecafStatus] = useState(false)
-
-    //console.log(decafStatus)
 
     function handleSubmit(event){
         event.preventDefault()

@@ -55,14 +55,8 @@ function App() {
     shopToUpdate.drinks = updatedDrinks
     const updatedShops = shops.map(shop => shop.id === shopToUpdate.id ? shopToUpdate : shop)
     setShops(updatedShops)
+    setDrinks([...drinks, newDrink])
   }
-
-  /*function handleEditDrink(editedDrink){
-    console.log("app edit drink:", editedDrink)
-    const updatedDrinks = drinks.map((drink) => drink.id === editedDrink.id ? editedDrink : drink)
-    setDrinks(updatedDrinks)
-  }*/
-  //why doesnt ^ work?
 
   function handleEditDrink(editedDrink){
     console.log("app edit drink:", editedDrink)
@@ -71,6 +65,8 @@ function App() {
     shopToUpdate.drinks = updatedDrinks
     const updatedShops = shops.map(shop => shop.id === shopToUpdate.id ? shopToUpdate : shop)
     setShops(updatedShops)
+    const updatedDrinkState = drinks.map((drink) => drink.id === editedDrink.id ? editedDrink : drink)
+    setDrinks(updatedDrinkState)
   }
 
   function handleDeleteDrink(deletedDrink){
@@ -80,6 +76,8 @@ function App() {
     shopToUpdate.drinks = updatedDrinks
     const updatedShops = shops.map(shop => shop.id === shopToUpdate.id ? shopToUpdate : shop)
     setShops(updatedShops)
+    const updatedDrinkState = drinks.filter(drink=> drink.id !== deletedDrink.id)
+    setDrinks(updatedDrinkState)
   }
 
   return(
