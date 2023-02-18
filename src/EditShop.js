@@ -59,9 +59,9 @@ function EditShop({shops, onEditShop, onDeleteShop}){
         })
         .then((r)=>r.json())
         .then(shop=>onDeleteShop(shop))
+        fetch()
         history.push("/shops")
         alert("shop deleted!")
-        //can I delete the shop's drinks in the same go
     }
 
     return (

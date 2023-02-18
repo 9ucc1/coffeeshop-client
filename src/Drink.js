@@ -12,6 +12,8 @@ function Drink({drink, image, name, id, decaf, ingredients, price, description, 
         .then(()=>onDeleteDrink(drink))
     }
 
+    //make drink image bigger idk
+
     return (
         <div>
             <img src={image}></img>

@@ -3,9 +3,6 @@ import {useParams, Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 function Drinks({drinks}){
-    
-    //HOW TO FIND SHOP NAME
-    //add search bar?
 
     const Background = styled.div`
     background: white;

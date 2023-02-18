@@ -36,11 +36,7 @@ const FormButton = styled.p`
     margin-left: 40%;
 `
 
-// align to center please
-//ADD IMAGE TO SHOPS or at least an icon
-
 const renderShops = shops.map(shop =>(
-        
     <Wrapper>
         <img src={shop.image}></img>
         <Link to={`/shops/${shop.id}`}>{shop.name}</Link>

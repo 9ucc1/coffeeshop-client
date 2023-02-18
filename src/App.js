@@ -46,6 +46,8 @@ function App() {
     console.log("app delete shop", deletedShop)
     const updatedShops = shops.filter((shop) => shop.id !== deletedShop.id)
     setShops(updatedShops)
+    const updatedDrinks = drinks.filter((drink)=> drink.shop_id !== deletedShop.id)
+    setDrinks(updatedDrinks)
   }
 
   function handleAddDrink(newDrink){

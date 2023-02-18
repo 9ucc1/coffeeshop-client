@@ -62,21 +62,6 @@ function Shop({shops, onDeleteDrink}){
             <br/>
             <h3>{shopInfo.name}'s Drinks</h3>
             {renderDrinks}
-            {/*
-            shopInfo.drinks.map(drink =>(
-                <Drink
-                drink={drink}
-                key={drink.id}
-                name={drink.name}
-                id={drink.id}
-                decaf={drink.decaf}
-                ingredients={drink.ingredients}
-                price={drink.price}
-                shopid={drink.shop_id}
-                description={drink.description}
-                onDeleteDrink={onDeleteDrink}
-                />
-            ))*/}
             <Link to="/shops">
                 Back to All Shops
             </Link>

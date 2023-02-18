@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import styled from 'styled-components'
 
 function NewDrink({onAddShop}){
@@ -20,25 +20,24 @@ function NewDrink({onAddShop}){
         image: ""
     }
 
+    const history = useHistory()
+
     const [newShop, setNewShop] = useState(initialNewShop)
 
     function handleChange(event){
         setNewShop((currentShopState)=>(
             {...currentShopState, [event.target.name]: event.target.value}
         ))
-        //console.log(newShop)
     }
 
     function handleSubmit(event){
         event.preventDefault()
-        //console.log(newShop)
         const formData = {
             name: newShop.name,
             location: newShop.location,
             description: newShop.description,
             image: newShop.image
         }
-        //console.log("form", formData)
         fetch(`http://localhost:9292/shops`,{
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -47,6 +46,7 @@ function NewDrink({onAddShop}){
         .then((r)=>r.json())
         .then((shop)=>onAddShop(shop))
         setNewShop(initialNewShop)
+        history.push('/shops')
         alert('shop created!')
     }
 
