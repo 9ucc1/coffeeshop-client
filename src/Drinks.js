@@ -4,6 +4,10 @@ import styled from 'styled-components'
 
 function Drinks({drinks}){
 
+    const Text = styled.p`
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    `
     const Background = styled.div`
     background: white;
     padding: 1em;
@@ -43,10 +47,12 @@ function Drinks({drinks}){
     return (
         <Background>
         <div>
-            <h2>All Drinks Available</h2>
-            Visit the drink's shop page to view full details, edit and delete drinks!
+            <Text>
+                <h2>All Drinks Available</h2>
+                Visit the drink's shop page to view full details, edit and delete drinks!
+            </Text>
             <Columns>
-            {renderDrinks}
+                {renderDrinks}
             </Columns>
         </div>
         </Background>
